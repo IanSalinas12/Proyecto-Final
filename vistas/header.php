@@ -1,7 +1,7 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <div class="container">
             <a href="/" class="navbar-brand">
-                <span class="brand-text font-weight-light">Consultas PSG</span>
+                <span class="brand-text font-weight-light">BLOG GIMNASIO</span>
             </a>
     
             <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,13 +32,13 @@
                 <a href="login.html" class="btn btn-outline-primary btn-sm">
                     Iniciar sesión
                 </a>
-                <a href="registro.html" class="btn btn-primary btn-sm ml-1">Regístrate</a>
+                <a href="<?= $_ENV['BASE_URL']?>registro" class="btn btn-primary btn-sm ml-1">Regístrate</a>
     
     
-                <div class="image">
+                <div class="image mr-1 ml-1">
                     <img src="<?= $_ENV['BASE_URL'] ?>vistas/dist/images/user.png" class="img-circle" width="30" alt="Imagen de usuario">
                 </div>
-                Carlos Perez
+                <?= $_SESSION['nombre'] .' '. $_SESSION['paterno'] ?>
                 <a href="salir" class="btn btn-outline-danger ml-1 btn-sm">
                     salir
                 </a>

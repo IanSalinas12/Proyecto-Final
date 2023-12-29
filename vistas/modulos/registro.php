@@ -62,11 +62,15 @@
                             <button type="submit" class="btn btn-primary btn-block">Registro</button>
                         </div>
                     </div>
+                    <?php
+                        $usuario = new Usuario();
+                        $usuario->registrarUsuario();
+                    ?>
      
                 </form>
     
                 <div class="text-center mt-3">
-                    <a href="login.html" class="text-center">Ya tengo una cuenta</a>
+                    <a href="<?= $_ENV['BASE_URL'] ?>login" class="text-center">Ya tengo una cuenta</a>
                 </div>
             </div>
         </div>

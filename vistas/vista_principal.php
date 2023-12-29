@@ -1,5 +1,8 @@
 <?php
-$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registros', 'respuestas'];
+
+session_start();
+
+$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registro', 'respuestas'];
 
 $ruta = 'preguntas';
 if (isset($_GET['ruta'])) {
@@ -10,7 +13,7 @@ if (isset($_GET['ruta'])) {
 
 $clase = "";
 if ($ruta == 'login' || $ruta == 'registro')
-    $clase = 'login-page'
+    $clase = "login-page";
 ?>
 
 <!DOCTYPE html>
