@@ -1,6 +1,6 @@
 <div class="login-box">
         <div class="login-logo">
-          <a href="#"><b>Consultas</b>Posgrado</a>
+          <a href="#"><b>BLOG</b> AtlasGym</a>
         </div>
         <div class="card">
           <div class="card-body login-card-body">

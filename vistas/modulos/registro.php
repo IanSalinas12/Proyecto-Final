@@ -1,6 +1,6 @@
 <div class="register-box">
         <div class="register-logo">
-            <a href="#"><b>Consultas</b>Posgrado</a>
+            <a href="#"><b>BLOG</b> AtlasGym</a>
         </div>
     
         <div class="card">
