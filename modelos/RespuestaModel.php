@@ -26,4 +26,12 @@ class RespuestaModel
 
         return $stmt->execute();
     }
+
+    static public function contarRespuestasUsuario($id_usuario)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT COUNT(*) as cantidad FROM respuesta WHERE id_usuario=:id_usuario");
+        $stmt->bindParam(":id_usuario", $id_usuario, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

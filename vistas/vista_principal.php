@@ -2,7 +2,7 @@
 
 session_start();
 
-$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registro', 'respuestas'];
+$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registro', 'respuestas', 'salir', 'usuarios'];
 
 $ruta = 'preguntas';
 if (isset($_GET['ruta'])) {
@@ -51,7 +51,6 @@ if ($ruta == 'login' || $ruta == 'registro')
         include "modulos/$ruta.php";
     else
         include "modulos/404.php";
-
     ?>
 
     <?php

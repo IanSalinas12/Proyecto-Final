@@ -24,7 +24,7 @@ class Usuario
                         $respuesta = UsuarioModel::registrarUsuario("usuario", $datos);
                         if ($respuesta) {
                             $persona = UsuarioModel::obtenerPersona($id_persona);
-                            self::iniciarSecion($persona);
+                            self::iniciarSesion($persona);
                         }
                     }
                 } else {
@@ -45,7 +45,7 @@ class Usuario
         return preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $input);
     }
 
-    static private function iniciarSecion($persona)
+    static private function iniciarSesion($persona)
     {
         $_SESSION['id'] = $persona['id_persona'];
         $_SESSION['nombre'] = $persona['nombre'];
@@ -55,5 +55,23 @@ class Usuario
         echo '<script> 
                 window.location = "' . $_ENV['BASE_URL'] . '";
             </script>';
+    }
+
+    static public function loginUsuario()
+    {
+        if (isset($_POST['usuario']) && isset($_POST['clave'])) {
+            $usuario = UsuarioModel::obtenerPersonaPorUsuario($_POST['usuario']);
+            if ($usuario) {
+                if (password_verify($_POST['clave'], $usuario['clave']))
+                    self::iniciarSesion($usuario);
+                else
+                    echo '<div class = "alert alert-danger mt-2" rol = "alert" >
+                            Contraseña incorrecta
+                        </div>';
+            } else
+                echo '<div class = "alert alert-danger mt-2" rol = "alert" >
+                    Contraseña incorrecta
+                </div>';
+        }
     }
 }

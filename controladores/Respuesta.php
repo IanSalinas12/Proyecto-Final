@@ -25,7 +25,7 @@ class Respuesta
                 $datos = [
                     'descripcion' => $descripcion,
                     'foto' => $ruta,
-                    'id_usuario' => 1,
+                    'id_usuario' => $_SESSION['id'],
                     'id_pregunta' => $_POST['id_pregunta']
                 ];
 
@@ -64,5 +64,11 @@ class Respuesta
         } else {
             return true;
         }
+    }
+
+    static public function listarRespuestasUsuario()
+    {
+        $respuesta =  RespuestaModel::contarRespuestasUsuario($_SESSION['id']);
+        return $respuesta;
     }
 }
