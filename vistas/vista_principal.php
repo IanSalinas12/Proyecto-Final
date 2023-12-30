@@ -2,7 +2,7 @@
 
 session_start();
 
-$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registro', 'respuestas', 'salir', 'usuarios'];
+$rutas = ['login', 'perfil', 'pregunta', 'preguntas', 'registro', 'respuesta', 'salir', 'usuarios'];
 
 $ruta = 'preguntas';
 if (isset($_GET['ruta'])) {
@@ -10,10 +10,10 @@ if (isset($_GET['ruta'])) {
     $ruta = $ruta[0];
 }
 
-
 $clase = "";
 if ($ruta == 'login' || $ruta == 'registro')
     $clase = "login-page";
+
 ?>
 
 <!DOCTYPE html>
@@ -35,28 +35,42 @@ if ($ruta == 'login' || $ruta == 'registro')
 
 </head>
 
-
-
 <body class="hold-transition layout-top-nav <?= $clase ?>">
 
     <?php
     if ($ruta != 'login' && $ruta != 'registro')
-        include "header.php";
+        include 'header.php';
     ?>
-
 
     <?php
 
-    if (in_array($ruta, $rutas))
-        include "modulos/$ruta.php";
-    else
+    if (in_array($ruta, $rutas)) {
+
+        if ($ruta == 'usuarios') {
+            if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'ADMIN')
+                include "modulos/usuarios.php";
+            else
+                include "modulos/404.php";
+        } elseif ($ruta == 'perfil') {
+            if (isset($_SESSION['rol']))
+                include "modulos/perfil.php";
+            else
+                include "modulos/404.php";
+        } else {
+            include "modulos/$ruta.php";
+        }
+    } else {
         include "modulos/404.php";
+    }
+
+
     ?>
 
     <?php
     if ($ruta != 'login' && $ruta != 'registro')
-        include "footer.php";
+        include 'footer.php';
     ?>
+
 
 </body>
 

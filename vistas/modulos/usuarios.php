@@ -25,16 +25,21 @@ $usuarios = Persona::listarUsuarios();
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="<?php $_ENV['BASE_URL'] ?>controladores/reportes/pdf.php" method="post" target="_blank">
-                                <button class="btn btn-danger" type="submit" >
-                                    <i class="fa fa-file-pdf"></i>
-                                    Exportar a pdf
-                                </button>
-                                <button class="btn btn-danger" type="submit">
-                                    <i class="fa fa-file-excel"></i>
-                                    Exportar a excel
-                                </button>
-                            </form>
+                            <div class="d-flex">
+                                <form action="<?php $_ENV['BASE_URL'] ?>controladores/reportes/pdf.php" method="post" target="_blank">
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="fa fa-file-pdf"></i>
+                                        Exportar a pdf
+                                    </button>
+                                </form>
+                                &nbsp;
+                                <form action="<?php $_ENV['BASE_URL'] ?>controladores/reportes/excel.php" method="post" target="_blank">
+                                    <button class="btn btn-success" type="submit">
+                                        <i class="fa fa-file-excel"></i>
+                                        Exportar a excel
+                                    </button>
+                                </form>
+                            </div>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
